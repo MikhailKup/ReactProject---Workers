@@ -13,7 +13,7 @@ class App extends Component {
 		super(props);
 		this.state = {
 			data: [
-				{name: 'Denzel Washington', salary: 800, increase: false, raise: true, id:1},
+				{name: 'Denzel Washington', salary: 800, increase: false, raise: false, id:1},
 				{name: 'Will Smith', salary: 1000, increase: false, raise: false, id:2},
 				{name: 'Dwayne Johnson', salary: 1400, increase: false, raise: false, id:3},
 			],
@@ -95,6 +95,18 @@ class App extends Component {
 		this.setState(({filter}));
 	}
 
+	//? ---------------------------------------------------
+	onSalaryChange = (name, salary) => {
+		this.setState(({data}) => ({
+			data: data.map(item => {
+				if (item.name === name) {
+					return {...item, salary}
+				}
+				return item;
+			})
+		}));
+	};
+
 	render() {
 		const {data, term, filter} = this.state;
 		const workers = this.state.data.length;
@@ -118,6 +130,7 @@ class App extends Component {
 				onDelete={this.deleteItem}
 				onToggleIncrease={this.onToggleIncrease}
 				onToggleRaise={this.onToggleRaise}
+				onSalaryChange={this.onSalaryChange}
 				/>
 	
 				<WorkersAddForm onAdd={this.addItem}/>

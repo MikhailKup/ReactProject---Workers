@@ -4,9 +4,9 @@ const AppHeader = (props) => {
 	const {workers, increasedWorkersCount} = props;
 	return (
 		<div className="app-header">
-			<h1>Учёт сотрудников в компании ООО "Рога"</h1>
-			<h2>Общее число сотрудников: {workers}</h2>
-			<h2>Премию получат: {increasedWorkersCount}</h2>
+			<h1>Employee accounting in "Horns and Hooves" LLC</h1>
+			<h2>Total number of employees: {workers}</h2>
+			<h2>The prize will be received: {increasedWorkersCount}</h2>
 		</div>
 	);
 };
